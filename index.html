@@ -1,24 +1,32 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mining App - Login</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>NeonMine — Login</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
-  <div class="auth-box">
-    <h1 class="title">⛏️ LCC Mining</h1>
-    <p class="subtitle">Login or Create your Mining Account</p>
+  <main class="auth-wrap neon-bg">
+    <div class="auth-card">
+      <h1 class="brand">NEON<span>MINER</span></h1>
+      <p class="muted">Login or create an account to start mining</p>
 
-    <input id="email" type="email" placeholder="Enter Email" class="input"/>
-    <input id="password" type="password" placeholder="Enter Password" class="input"/>
+      <input id="email" type="email" placeholder="Email" class="field" />
+      <input id="password" type="password" placeholder="Password" class="field" />
+      <input id="referral" type="text" placeholder="Referral code (optional)" class="field" />
 
-    <button class="btn" onclick="handleSignup()">Create Account</button>
-    <button class="btn green" onclick="handleLogin()">Login</button>
-  </div>
+      <div class="row">
+        <button id="signupBtn" class="btn neon-btn">Create</button>
+        <button id="loginBtn" class="btn neon-btn alt">Login</button>
+      </div>
 
+      <p id="authMsg" class="muted small"></p>
+      <p class="small muted">By continuing you agree to demo rules.</p>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/bundle/supabase.js"></script>
   <script src="supabase.js"></script>
   <script src="app.js"></script>
 </body>
