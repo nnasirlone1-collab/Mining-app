@@ -1,43 +1,64 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mining Dashboard</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>NeonMine — Dashboard</title>
+  <link rel="stylesheet" href="style.css"/>
 </head>
-
 <body>
-
-  <div class="dashboard">
-
-    <h2 class="dash-title">⛏️ LCC Mining Dashboard</h2>
-
-    <div class="card">
-      <h3>Total Earnings</h3>
-      <p id="total">0.00000000 LCC</p>
+  <header class="topbar neon-bg">
+    <div class="logo">NEON<span>MINER</span></div>
+    <div class="top-actions">
+      <span id="userEmail" class="muted small"></span>
+      <button id="profileBtn" class="tiny">Profile</button>
+      <button id="logoutBtn" class="tiny alt">Logout</button>
     </div>
+  </header>
 
-    <div class="card">
-      <h3>Today's Earnings</h3>
-      <p id="today">0.00000000 LCC</p>
-    </div>
+  <main class="dash-wrap">
+    <section class="cards">
+      <div class="card neon-card">
+        <h4>Total</h4>
+        <div id="totalCoins" class="big">0</div>
+      </div>
+      <div class="card neon-card">
+        <h4>Today</h4>
+        <div id="todayCoins" class="big">0</div>
+      </div>
+      <div class="card neon-card">
+        <h4>Streak</h4>
+        <div id="streak" class="big">0</div>
+      </div>
+    </section>
 
-    <div class="card mining-box">
-      <h3>Mining Status</h3>
-      <p id="status">⛏️ Mining...</p>
-      <p id="rate">+0.000001 LCC / minute</p>
-    </div>
+    <section class="mine-area">
+      <div id="minAnim" class="miner">⛏</div>
+      <div class="mine-controls">
+        <button id="mineBtn" class="mine-large">MINE NOW</button>
+        <button id="autoBtn" class="small alt">Auto: OFF</button>
+        <button id="dailyBtn" class="small">Claim Daily</button>
+      </div>
+      <p id="mineMsg" class="muted small"></p>
+    </section>
 
-    <button class="btn green" id="startBtn" onclick="startMining()">Start Mining</button>
-    <button class="btn red" id="stopBtn" onclick="stopMining()">Stop Mining</button>
+    <section class="market">
+      <h3>Boosts & Wallet</h3>
+      <div class="boost-row">
+        <button data-cost="50" class="boost">Buy 1hr Boost • 50</button>
+        <button data-cost="200" class="boost">Buy 1 Day Boost • 200</button>
+        <button id="withdrawBtn" class="boost alt">Withdraw</button>
+      </div>
+    </section>
 
-    <button class="btn" onclick="logout()">Logout</button>
+    <section class="leaderboard">
+      <h3>Leaderboard</h3>
+      <ol id="leaders"></ol>
+    </section>
+  </main>
 
-  </div>
-
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/bundle/supabase.js"></script>
   <script src="supabase.js"></script>
   <script src="dashboard.js"></script>
-
 </body>
 </html>
