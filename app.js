@@ -1,9 +1,8 @@
-// app.js - login & signup logic for index.html
+// app.js - login & signup logic for index.html (defensive: shows errors if supabase not configured)
 const authMsg = document.getElementById("authMsg");
-const signupBtn = document.getElementById("signupBtn");
-const loginBtn = document.getElementById("loginBtn");
 
-signupBtn.onclick = async () => {
+// handle signup called from button onclick
+async function handleSignup() {
   authMsg.textContent = "";
   const email = document.getElementById("email").value.trim();
   const password = document.getElementById("password").value.trim();
@@ -11,29 +10,43 @@ signupBtn.onclick = async () => {
 
   if (!email || !password) { authMsg.textContent = "Enter email & password"; return; }
 
-  const { data, error } = await supabase.auth.signUp({ email, password });
-  if (error) {
-    authMsg.textContent = error.message;
-    return;
+  try {
+    const { data, error } = await window.supabase.auth.signUp({ email, password });
+    if (error) {
+      authMsg.textContent = error.message || "Sign up failed";
+      return;
+    }
+    if (referral) localStorage.setItem("referral_code", referral);
+    authMsg.textContent = "Signup OK — verify email then login.";
+  } catch (e) {
+    authMsg.textContent = "Signup failed: " + (e.message || e);
   }
+}
 
-  if (referral) localStorage.setItem("referral_code", referral);
-  authMsg.textContent = "Signup OK — verify email then login.";
-};
-
-loginBtn.onclick = async () => {
+// handle login called from button onclick
+async function handleLogin() {
   authMsg.textContent = "";
   const email = document.getElementById("email").value.trim();
   const password = document.getElementById("password").value.trim();
+
   if (!email || !password) { authMsg.textContent = "Enter email & password"; return; }
 
-  const { data, error } = await supabase.auth.signInWithPassword({ email, password });
-  if (error) {
-    authMsg.textContent = error.message;
-    return;
-  }
+  try {
+    const { data, error } = await window.supabase.auth.signInWithPassword({ email, password });
+    if (error) {
+      authMsg.textContent = error.message || "Login failed";
+      return;
+    }
 
-  const userId = email.toLowerCase();
-  localStorage.setItem("user_id", userId);
-  window.location.href = "dashboard.html";
-};
+    // success — store simple user id (email) and go to dashboard
+    const userId = email.toLowerCase();
+    localStorage.setItem("user_id", userId);
+    window.location.href = "dashboard.html";
+  } catch (e) {
+    authMsg.textContent = "Login failed: " + (e.message || e);
+  }
+}
+
+// expose functions globally (already used by onclick in HTML)
+window.handleSignup = handleSignup;
+window.handleLogin = handleLogin;
