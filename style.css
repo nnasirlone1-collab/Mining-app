@@ -1,36 +1,78 @@
 body {
-  font-family: Arial;
-  background: #111;
-  color: #fff;
+  margin: 0;
+  background: #0d0d0d;
+  color: white;
+  font-family: Arial, sans-serif;
   text-align: center;
-  padding: 20px;
 }
 
-input {
-  width: 80%;
-  padding: 14px;
-  margin: 10px;
-  border-radius: 8px;
-  border: none;
+/* Auth Page */
+.auth-box {
+  margin: 80px auto;
+  width: 90%;
+  max-width: 400px;
+  background: #1a1a1a;
+  padding: 30px;
+  border-radius: 12px;
 }
 
-button {
-  width: 80%;
-  padding: 14px;
-  background: #2ecc71;
+.title {
+  font-size: 32px;
+  margin-bottom: 5px;
+}
+
+.subtitle {
+  opacity: 0.7;
+  margin-bottom: 20px;
+}
+
+.input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
   border: none;
-  margin: 10px;
   border-radius: 8px;
+}
+
+/* Buttons */
+.btn {
+  width: 100%;
+  padding: 14px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: none;
+  background: #444;
+  color: white;
   font-size: 18px;
 }
 
-#timer {
-  font-size: 32px;
-  margin-top: 10px;
+.btn.green {
+  background: #00e676;
 }
 
-#info {
-  padding: 10px;
-  background: #222;
-  border-radius: 10px;
+.btn.red {
+  background: #ff1744;
+}
+
+/* Dashboard */
+.dashboard {
+  margin-top: 30px;
+}
+
+.dash-title {
+  font-size: 26px;
+  margin-bottom: 20px;
+}
+
+.card {
+  background: #1e1e1e;
+  padding: 20px;
+  width: 90%;
+  max-width: 400px;
+  margin: 15px auto;
+  border-radius: 12px;
+}
+
+.mining-box {
+  border: 2px solid limegreen;
 }
