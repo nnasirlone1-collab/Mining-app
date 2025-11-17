@@ -1,58 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>LCC Mining</title>
-    <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mining App - Login</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
+  <div class="auth-box">
+    <h1 class="title">⛏️ LCC Mining</h1>
+    <p class="subtitle">Login or Create your Mining Account</p>
 
-<div id="app">
+    <input id="email" type="email" placeholder="Enter Email" class="input"/>
+    <input id="password" type="password" placeholder="Enter Password" class="input"/>
 
-    <!-- LOGIN PAGE -->
-    <div id="authPage">
-        <h1>LCC Mining</h1>
-        <h3>Login or Create Account</h3>
+    <button class="btn" onclick="handleSignup()">Create Account</button>
+    <button class="btn green" onclick="handleLogin()">Login</button>
+  </div>
 
-        <input id="email" placeholder="Email">
-        <input id="password" type="password" placeholder="Password">
-
-        <button onclick="register()">Sign Up</button>
-        <button onclick="login()">Login</button>
-    </div>
-
-    <!-- MAIN MINING PAGE -->
-    <div id="mainPage" style="display:none;">
-        <h1>LCC Mining</h1>
-
-        <p><b>Your Balance:</b> <span id="balance">0</span> LCC</p>
-        <p><b>Your Mining Speed:</b> <span id="speed">0.0001</span> LCC/sec</p>
-
-        <p><b>Next Mining Session Ends In:</b></p>
-        <h2 id="timer">00:00:00</h2>
-
-        <button id="mineBtn" onclick="startMining()">Start 24h Mining</button>
-
-        <h3>Your Referral Code</h3>
-        <div id="refCode"></div>
-
-        <button onclick="copyReferral()">Copy Referral Link</button>
-
-        <h3>How it Works</h3>
-        <p id="info">
-            • Tap **Start Mining** once every 24 hours.<br>
-            • Your phone mines **0.0001 LCC per second**.<br>
-            • Each referral gives **+1 LCC + 0.0001 speed boost**.<br>
-            • Mining continues in background even if the app is closed.<br>
-            • One device can be linked to only one account.
-        </p>
-
-    </div>
-
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/supabase-js@2"></script>
-<script src="supabase.js"></script>
-<script src="app.js"></script>
-
+  <script src="supabase.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
