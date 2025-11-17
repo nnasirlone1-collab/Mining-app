@@ -3,13 +3,14 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>NeonMine — Login</title>
+  <title>LCC Miner — Login</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <main class="auth-wrap neon-bg">
     <div class="auth-card">
-      <h1 class="brand">NEON<span>MINER</span></h1>
+      <!-- BRAND UPDATED TO LCC -->
+      <h1 class="brand">LCC<span>MINER</span></h1>
       <p class="muted">Login or create an account to start mining</p>
 
       <input id="email" type="email" placeholder="Email" class="field" />
@@ -17,8 +18,9 @@
       <input id="referral" type="text" placeholder="Referral code (optional)" class="field" />
 
       <div class="row">
-        <button id="signupBtn" class="btn neon-btn">Create</button>
-        <button id="loginBtn" class="btn neon-btn alt">Login</button>
+        <!-- Add onclick attributes so buttons are clickable even if JS has an error loading -->
+        <button id="signupBtn" class="btn neon-btn" onclick="handleSignup()">Create</button>
+        <button id="loginBtn" class="btn neon-btn alt" onclick="handleLogin()">Login</button>
       </div>
 
       <p id="authMsg" class="muted small"></p>
