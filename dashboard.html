@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mining Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <div class="dashboard">
+
+    <h2 class="dash-title">⛏️ LCC Mining Dashboard</h2>
+
+    <div class="card">
+      <h3>Total Earnings</h3>
+      <p id="total">0.00000000 LCC</p>
+    </div>
+
+    <div class="card">
+      <h3>Today's Earnings</h3>
+      <p id="today">0.00000000 LCC</p>
+    </div>
+
+    <div class="card mining-box">
+      <h3>Mining Status</h3>
+      <p id="status">⛏️ Mining...</p>
+      <p id="rate">+0.000001 LCC / minute</p>
+    </div>
+
+    <button class="btn green" id="startBtn" onclick="startMining()">Start Mining</button>
+    <button class="btn red" id="stopBtn" onclick="stopMining()">Stop Mining</button>
+
+    <button class="btn" onclick="logout()">Logout</button>
+
+  </div>
+
+  <script src="supabase.js"></script>
+  <script src="dashboard.js"></script>
+
+</body>
+</html>
