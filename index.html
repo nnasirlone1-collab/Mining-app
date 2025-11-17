@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mining App</title>
+  <style>
+    body { font-family: Arial; text-align: center; padding: 40px; }
+    #coins { font-size: 32px; margin-top: 20px; }
+    button { padding: 15px 25px; font-size: 18px; }
+  </style>
+</head>
+<body>
+  <h1>Free Mining App</h1>
+  <p>Tap the button to mine coins.</p>
+
+  <div id="coins">Coins: 0</div>
+  <button onclick="mine()">Start Mining</button>
+
+  <script>
+    let coins = 0;
+    function mine() {
+      coins += 1;
+      document.getElementById('coins').innerText = "Coins: " + coins;
+    }
+  </script>
+</body>
+</html>
